@@ -9,22 +9,22 @@
 import UIKit
 
 class ScoresViewController: UIViewController {
-
+    
+    var gameVC: TypingTestViewController?
+    
+    @IBOutlet weak var highScores: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // display the top five high scores
+    override func viewWillAppear(_ animated: Bool) {
+        highScores.text = String(format:"%i \n%i \n%i", (gameVC?.highScores[0])!, (gameVC?.highScores[1])!, (gameVC?.highScores[2])!,
+            (gameVC?.highScores[3])!,
+            (gameVC?.highScores[4])!)
     }
-    */
 
 }

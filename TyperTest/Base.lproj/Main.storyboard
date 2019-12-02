@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -68,7 +71,7 @@
                         <color key="backgroundColor" red="0.99334174389999996" green="0.93200236560000005" blue="0.88725936409999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configuration" image="pencil" catalog="system" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Configuration" image="pencil" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="foxGrapes" destination="VWQ-7d-kwZ" id="kog-CX-sf3"/>
                         <outlet property="frogsOx" destination="COG-1I-1VQ" id="fCb-Zr-oPu"/>
@@ -104,8 +107,8 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-zt-sKK">
                                 <rect key="frame" x="40" y="61" width="333" height="153"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -127,7 +130,7 @@
                         <color key="backgroundColor" red="1" green="0.92097742356742918" blue="0.87350106306179398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Typer Test" image="keyboard" catalog="system" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Typer Test" image="keyboard" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="errorLabelDisplay" destination="kdK-EJ-gfo" id="TBb-er-jZ4"/>
                         <outlet property="fullSentenceDisplay" destination="2ys-zt-sKK" id="tRS-qL-nmy"/>
@@ -146,14 +149,33 @@
                     <view key="view" contentMode="scaleToFill" id="Mxa-xk-KFt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Scores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PD9-5F-EoU">
+                                <rect key="frame" x="36" y="84" width="342" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1b-X3-XQB">
+                                <rect key="frame" x="36" y="207" width="290" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98536759614944458" green="0.92560559511184692" blue="0.87858027219772339" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="ZpV-w3-fC1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scores" image="star.fill" catalog="system" id="w01-0v-68U"/>
+                    <tabBarItem key="tabBarItem" title="Scores" image="star.fill" id="w01-0v-68U"/>
+                    <connections>
+                        <outlet property="highScores" destination="t1b-X3-XQB" id="60a-Ld-PL3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpI-go-hoU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1568" y="0.0"/>
+            <point key="canvasLocation" x="1566.6666666666667" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -176,8 +198,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="keyboard" catalog="system" width="64" height="34"/>
-        <image name="pencil" catalog="system" width="64" height="56"/>
-        <image name="star.fill" catalog="system" width="64" height="58"/>
+        <image name="keyboard" width="64" height="34"/>
+        <image name="pencil" width="64" height="56"/>
+        <image name="star.fill" width="64" height="58"/>
     </resources>
 </document>

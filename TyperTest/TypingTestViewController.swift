@@ -22,6 +22,8 @@ class TypingTestViewController: UIViewController {
     var textArrayIdx: Int = 0
     var typingErrors: Int = 0
     
+    var highScores = [0, 0, 0, 0, 0]
+    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        // Do any additional setup after loading the view.
@@ -96,6 +98,17 @@ extension TypingTestViewController {
         inputField.removeTarget(self, action: #selector(TypingTestViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         inputField.endEditing(true)
         errorLabelDisplay.text = String(typingErrors)
+        
+        var evaluatingScore = highScores.endIndex - 1
+        while ((typingErrors < highScores[evaluatingScore]) || typingErrors > highScores[0]) && evaluatingScore != 0{
+            evaluatingScore -= 1
+        }
+        if typingErrors < highScores[0]{
+            highScores.insert(typingErrors, at: 0)
+        } else {
+            highScores.insert(typingErrors, at: evaluatingScore)
+        }
+        
     }
 }
 
