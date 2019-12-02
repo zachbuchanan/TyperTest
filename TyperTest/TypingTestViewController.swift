@@ -17,7 +17,11 @@ class TypingTestViewController: UIViewController {
     @IBOutlet weak var fullSentenceDisplay: UITextView!
     @IBOutlet weak var errorLabelDisplay: UILabel!
     
-    public var typerObject = TyperObject()
+    //public var typerObject = TyperObject()
+    var config: ConfigureViewController = ConfigureViewController()
+    
+    public var typerObject = config.getConfigInitializer()
+    //public var typerObject: TyperObject
     public var userEnteredWords: [String] = []
     
     var textArrayIdx: Int = 0
@@ -28,7 +32,6 @@ class TypingTestViewController: UIViewController {
         // Do any additional setup after loading the view.
         beginTest()
     }
-    
     
     
 }
@@ -77,21 +80,5 @@ extension TypingTestViewController {
     }
 }
 
-//MARK: Typer Object
-//To Do: This object should set its initializer text based on selection on configuration.
-//Use get and set to do this. This will make the OOP easier and will allow us to ignore downcasting
-class TyperObject {
-    public var initializerText: String {
-        get {
-            //return "A Gnat flew over the meadow with much buzzing for so small a creature and settled on the tip of one of the horns of a Bull."
-            return "This is a test"
-        }
-    }
-    
-    public var textArray: [String] = []
-    init() {
-        textArray = initializerText.components(separatedBy: " ")
-    }
-    
-}
+
 

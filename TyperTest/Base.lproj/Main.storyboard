@@ -39,14 +39,23 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="COG-1I-1VQ">
                                 <rect key="frame" x="317" y="143" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="frogsOxSwitch:" destination="9pv-A4-QxB" eventType="valueChanged" id="Rxp-ht-5sR"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-7d-kwZ">
                                 <rect key="frame" x="317" y="236" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="foxGrapesSwitch:" destination="9pv-A4-QxB" eventType="valueChanged" id="Iyj-OO-QZz"/>
+                                </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yBj-KQ-cn9">
                                 <rect key="frame" x="317" y="330" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="gnatBullSwitch:" destination="9pv-A4-QxB" eventType="valueChanged" id="588-UN-hfH"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose a paragraph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-Jj-p81">
                                 <rect key="frame" x="43" y="78" width="321" height="21"/>
@@ -60,6 +69,11 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Configuration" image="pencil" catalog="system" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="foxGrapes" destination="VWQ-7d-kwZ" id="kog-CX-sf3"/>
+                        <outlet property="frogsOx" destination="COG-1I-1VQ" id="fCb-Zr-oPu"/>
+                        <outlet property="gnatBull" destination="yBj-KQ-cn9" id="2so-jR-P9Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
