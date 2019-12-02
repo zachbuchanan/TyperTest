@@ -15,6 +15,8 @@
 		92258A64237E10AA00372AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92258A63237E10AA00372AFC /* Assets.xcassets */; };
 		92258A67237E10AA00372AFC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92258A65237E10AA00372AFC /* LaunchScreen.storyboard */; };
 		92258A6F237E117700372AFC /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92258A6E237E117700372AFC /* ScoresViewController.swift */; };
+		92F1587A2395BCDD000518FD /* TyperObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F158792395BCDD000518FD /* TyperObject.swift */; };
+		92F1587C2395BD2B000518FD /* TyperTestSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1587B2395BD2B000518FD /* TyperTestSingleton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		92258A66237E10AA00372AFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92258A68237E10AA00372AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92258A6E237E117700372AFC /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		92F158792395BCDD000518FD /* TyperObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperObject.swift; sourceTree = "<group>"; };
+		92F1587B2395BD2B000518FD /* TyperTestSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TyperTestSingleton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				92258A63237E10AA00372AFC /* Assets.xcassets */,
 				92258A65237E10AA00372AFC /* LaunchScreen.storyboard */,
 				92258A68237E10AA00372AFC /* Info.plist */,
+				92F158792395BCDD000518FD /* TyperObject.swift */,
+				92F1587B2395BD2B000518FD /* TyperTestSingleton.swift */,
 			);
 			path = TyperTest;
 			sourceTree = "<group>";
@@ -147,8 +153,10 @@
 				92258A5F237E10A600372AFC /* TypingTestViewController.swift in Sources */,
 				92258A5D237E10A600372AFC /* ConfigureViewController.swift in Sources */,
 				92258A6F237E117700372AFC /* ScoresViewController.swift in Sources */,
+				92F1587A2395BCDD000518FD /* TyperObject.swift in Sources */,
 				92258A59237E10A600372AFC /* AppDelegate.swift in Sources */,
 				92258A5B237E10A600372AFC /* SceneDelegate.swift in Sources */,
+				92F1587C2395BD2B000518FD /* TyperTestSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
