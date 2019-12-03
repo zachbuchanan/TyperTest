@@ -13,5 +13,27 @@ final class TyperTestSingleton {
     
     var typerObject: TyperObject = TyperObject()
     
+    public var HighScores: [Score] = []
+    
+    public func addScore(errors: Int, wpm: Double, typerobject: TyperObject){
+        HighScores.append(Score(Errors: errors, WPM: wpm, TyperObject: typerobject))
+    }
+    
     private init() {}
+}
+
+
+//scoring object
+class Score {
+    var errors: Int
+    var wpm: Double
+    var testType: String
+    
+    init(Errors _errors: Int, WPM _wpm: Double, TyperObject _typerobject: TyperObject) {
+        errors = _errors
+        wpm = _wpm
+        testType = _typerobject.returnTestType()
+    }
+    
+
 }

@@ -25,7 +25,21 @@ class TyperObject {
         initializerText = type.text()
         textArray = initializerText.components(separatedBy: " ")
     }
-
+    
+    //zach added
+    public func returnTestType() -> String {
+        switch testType {
+        case .Ox:
+            return "Ox and Frog"
+        case .Fox:
+            return "Fox and Grapes"
+        case .Gnat:
+            return "Gnat and Bull"
+        default:
+            return "Ox and Frog"
+        }
+    }
+    
     enum TestType {
         case Ox
         case Fox
