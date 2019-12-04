@@ -41,7 +41,7 @@ class TypingTestViewController: UIViewController {
         beginTest()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         clearTimer()
         textArrayIdx = 0
         typingErrors = 0
@@ -114,7 +114,7 @@ extension TypingTestViewController {
         inputField.endEditing(true)
         errorLabelDisplay.text = String(typingErrors)
         let wpm = calculateWordsPerMinute(Errors: typingErrors, TimeInSeconds: counter, NumberOfWordsTyped: typerObject.textArray.count)
-        WPMLabel.text = String(wpm)
+        WPMLabel.text = String(Int(wpm.rounded()))
         //add score to singleton
         TyperTestSingleton.sharedInstance.addScore(errors: typingErrors, wpm: wpm, typerobject: typerObject)
     }
