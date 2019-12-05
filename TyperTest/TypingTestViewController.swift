@@ -27,7 +27,7 @@ class TypingTestViewController: UIViewController {
     //timer variables
     var timer = Timer()
     var counter: Int = 0
-    var hasTimerStarted: Bool = false;
+    var hasTimerStarted: Bool = false
     
     
 //    override func viewDidLoad() {
@@ -37,6 +37,7 @@ class TypingTestViewController: UIViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewwillappear")
         typerObject = TyperTestSingleton.sharedInstance.typerObject
         beginTest()
     }
@@ -49,11 +50,13 @@ class TypingTestViewController: UIViewController {
         WPMLabel.text = ""
         timerLabel.text = "0"
         hasTimerStarted = false
+        userEnteredWords = []
     }
 }
 //MARK: Functions
 extension TypingTestViewController {
     func beginTest(){
+        print("errors on start: \(typingErrors)")
         guard let typerObject = typerObject else {
             print("Could not get typerObject in beginTest")
             return
@@ -106,6 +109,7 @@ extension TypingTestViewController {
         }
         stopTimer()
         for (testWord, inputWord) in zip(typerObject.textArray, userEnteredWords) {
+            print("\(testWord), \(inputWord)")
             if testWord != inputWord {
                 typingErrors += 1
             }
@@ -138,6 +142,7 @@ extension TypingTestViewController {
         timerLabel.text = String(counter)
     }
     func calculateWordsPerMinute(Errors errors: Int, TimeInSeconds time: Int, NumberOfWordsTyped numberOfWords: Int) -> Double{
+        print("errors: \(errors) time: \(time) numberofwords: \(numberOfWords)")
         let wpm = Double(numberOfWords - errors) / (Double(time) / 60)
         return wpm
     }

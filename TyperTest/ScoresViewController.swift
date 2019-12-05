@@ -40,8 +40,8 @@ extension ScoresViewController: UITableViewDelegate, UITableViewDataSource {
     	
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("cellForRow:", indexPath.row)
-        print("scorearraycount: ", scoreArray.count)
+        //print("cellForRow:", indexPath.row)
+        //print("scorearraycount: ", scoreArray.count)
         let cell = tableView.dequeueReusableCell(withIdentifier: "scorecell", for: indexPath)
         
         if indexPath.row < scoreArray.count {
