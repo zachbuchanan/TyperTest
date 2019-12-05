@@ -14,6 +14,8 @@ class TypingTestViewController: UIViewController {
     @IBOutlet weak var wordToType: UILabel!
     @IBOutlet weak var fullSentenceDisplay: UITextView!
     @IBOutlet weak var errorLabelDisplay: UILabel!
+    @IBOutlet weak var WPMLabel: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     
     public var typerObject: TyperObject?
@@ -22,7 +24,11 @@ class TypingTestViewController: UIViewController {
     var textArrayIdx: Int = 0
     var typingErrors: Int = 0
     
-    var highScores = [0, 0, 0, 0, 0]
+    //timer variables
+    var timer = Timer()
+    var counter: Int = 0
+    var hasTimerStarted: Bool = false
+    
     
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -31,18 +37,26 @@ class TypingTestViewController: UIViewController {
 //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("viewwillappear")
         typerObject = TyperTestSingleton.sharedInstance.typerObject
         beginTest()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
+        clearTimer()
         textArrayIdx = 0
         typingErrors = 0
+        errorLabelDisplay.text = ""
+        WPMLabel.text = ""
+        timerLabel.text = "0"
+        hasTimerStarted = false
+        userEnteredWords = []
     }
 }
 //MARK: Functions
 extension TypingTestViewController {
     func beginTest(){
+        print("errors on start: \(typingErrors)")
         guard let typerObject = typerObject else {
             print("Could not get typerObject in beginTest")
             return
@@ -60,6 +74,9 @@ extension TypingTestViewController {
     }
    
     @objc func textFieldDidChange(_ textField: UITextField) {
+        if !hasTimerStarted {
+            startTimer()
+        }
         let currentText = textField.text
         if let text = currentText {
             if text.last == " " {
@@ -90,7 +107,9 @@ extension TypingTestViewController {
             print("Could not get typerObject in endTest")
             return
         }
+        stopTimer()
         for (testWord, inputWord) in zip(typerObject.textArray, userEnteredWords) {
+            print("\(testWord), \(inputWord)")
             if testWord != inputWord {
                 typingErrors += 1
             }
@@ -98,17 +117,34 @@ extension TypingTestViewController {
         inputField.removeTarget(self, action: #selector(TypingTestViewController.textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
         inputField.endEditing(true)
         errorLabelDisplay.text = String(typingErrors)
-        
-        var evaluatingScore = highScores.endIndex - 1
-        while ((typingErrors < highScores[evaluatingScore]) || typingErrors > highScores[0]) && evaluatingScore != 0{
-            evaluatingScore -= 1
+        let wpm = calculateWordsPerMinute(Errors: typingErrors, TimeInSeconds: counter, NumberOfWordsTyped: typerObject.textArray.count)
+        WPMLabel.text = String(Int(wpm.rounded()))
+        //add score to singleton
+        TyperTestSingleton.sharedInstance.addScore(errors: typingErrors, wpm: wpm, typerobject: typerObject)
+    }
+    
+    func startTimer(){
+        if !hasTimerStarted {
+            hasTimerStarted = true
         }
-        if typingErrors < highScores[0]{
-            highScores.insert(typingErrors, at: 0)
-        } else {
-            highScores.insert(typingErrors, at: evaluatingScore)
-        }
-        
+        timerLabel.text = String(counter)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    func stopTimer(){
+        timer.invalidate()
+    }
+    func clearTimer(){
+        timer.invalidate()
+        counter = 0
+    }
+    @objc func updateCounter(){
+        counter += 1
+        timerLabel.text = String(counter)
+    }
+    func calculateWordsPerMinute(Errors errors: Int, TimeInSeconds time: Int, NumberOfWordsTyped numberOfWords: Int) -> Double{
+        print("errors: \(errors) time: \(time) numberofwords: \(numberOfWords)")
+        let wpm = Double(numberOfWords - errors) / (Double(time) / 60)
+        return wpm
     }
 }
 
